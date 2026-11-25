@@ -5,6 +5,8 @@
 #include "NotificationEmail.h"
 #include "NotificationSMS.h"
 #include "NotificationPush.h"
+#include"GestionnaireNotifications.h"
+
 using namespace std;
 
 int main()
@@ -14,6 +16,8 @@ int main()
     NotificationSMS s("0612345678", "Votre code est 4582", "Orange");
 
     NotificationPush p("user_102", "Paiement confirme", "MyBank");
+
+    GestionnaireNotifications g;
 
     Notification* tab[3];
 
@@ -30,6 +34,13 @@ int main()
     }
 
     return 0;
+   
+
+    g.ajouter(&e);
+    g.ajouter(&s);
+    g.ajouter(&p);
+
+    g.envoyerToutes();
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
